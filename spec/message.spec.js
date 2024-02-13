@@ -33,19 +33,3 @@ describe("Message class", function () {
     expect(message.name).toEqual("Test message with two commands", commands);
   });
 });
-
-//     it("throws error if command type is NOT passed into constructor as the first parameter", function () {
-//       expect(function () {
-//         new Command();
-//       }).toThrow(new Error("Command type required."));
-//     });
-
-//     it("constructor sets command type", function () {
-//       const command = new Command("MOVE");
-//       expect(command.commandType).toEqual("MOVE");
-//     });
-
-//     it("constructor sets a value passed in as the 2nd argument", function () {
-//       const command = new Command("MOVE", 7);
-//       expect(command.value).toEqual(7);
-//     });
