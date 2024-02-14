@@ -1,12 +1,10 @@
 /*
-commandType is a string that represents the type of command. 
-note, command type will be either- 
-MODE_CHANGE, 
-MOVE, or 
-STATUS_CHECK.
-value is a value related to the type of command
+This class builds an object with two properties: 
+constructor(commandType, value)
+commandType is a string that represents the type of command:
+MODE_CHANGE, MOVE, or STATUS_CHECK.
+value is a value related to the type of command.
 */
-// class builds object with two properties: constructor(commandType, value)
 class Command {
   constructor(commandType, value) {
     this.commandType = commandType;
