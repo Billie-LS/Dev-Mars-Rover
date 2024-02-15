@@ -31,6 +31,9 @@ class Rover {
       message: message.name,
       results: [],
     };
+    for (let command of message.commands) {
+      response.results.push({});
+    }
     return response;
   }
 }
