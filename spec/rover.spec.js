@@ -13,6 +13,7 @@ describe("Rover class", function () {
     expect(rover.mode).toBe("NORMAL");
     expect(rover.generatorWatts).toEqual(110);
   });
+
   it("response returned by receiveMessage contains the name of the message", function () {
     let message = new Message("Test message with two commands", commands);
     let rover = new Rover(9832);
