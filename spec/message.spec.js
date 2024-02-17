@@ -15,6 +15,6 @@ describe("Message class", () => {
   it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
     expect(() => {
       new Message();
-    }).toThrow(new Error("name required."));
+    }).toThrow(new Error("Message name required."));
   });
 });
