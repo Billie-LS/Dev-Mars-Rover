@@ -6,7 +6,10 @@ name is a string that is the name of the message.
 commands is an array of Command objects.
 */
 class Message {
-  // Write code here!
+  constructor(name, commands) {
+    this.name = name;
+    this.commands = commands;
+  }
 }
 
 module.exports = Message;
