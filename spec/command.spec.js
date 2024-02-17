@@ -17,6 +17,12 @@ describe("Command class", function () {
   // });
 
   it("constructor sets command type", () => {
+    let testType = "Move";
+    let command = new Command(testType);
+    expect(command.commandType).toBe(testType);
+  });
+
+  it("constructor sets command type", () => {
     let command = new Command("Move");
     expect(command.commandType).toBe("Move");
   });
