@@ -10,4 +10,11 @@ constructor(name, commands)
 name is a string that is the name of the message.
 commands is an array of Command objects.
 */
-describe("Message class", function () {});
+describe("Message class", () => {
+  // Test 1
+  it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
+    expect(() => {
+      new Message();
+    }).toThrow(new Error("name required."));
+  });
+});
