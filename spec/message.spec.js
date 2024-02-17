@@ -13,6 +13,11 @@ commands is an array of Command objects.
 describe("Message class", () => {
   // Test 4
   it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
+    expect(() => new Message()).toThrow(new Error("Message name required."));
+  });
+
+  // Test 4
+  it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
     expect(() => {
       new Message();
     }).toThrow(new Error("Message name required."));
@@ -25,11 +30,11 @@ describe("Message class", () => {
     expect(message.name).toBe(testName);
   });
 
-  // Test 5
-  it("constructor sets name", () => {
-    let message = new Message("Test message with two commands");
-    expect(message.name).toBe("Test message with two commands");
-  });
+  // // Test 5
+  // it("constructor sets name", () => {
+  //   let message = new Message("Test message with two commands");
+  //   expect(message.name).toBe("Test message with two commands");
+  // });
 
   // Test 6
   it("contains a commands array passed into the constructor as the 2nd argument", () => {
