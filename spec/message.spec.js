@@ -16,12 +16,12 @@ describe("Message class", () => {
     expect(() => new Message()).toThrow(new Error("Message name required."));
   });
 
-  // Test 4
-  it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
-    expect(() => {
-      new Message();
-    }).toThrow(new Error("Message name required."));
-  });
+  // // Test 4
+  // it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
+  //   expect(() => {
+  //     new Message();
+  //   }).toThrow(new Error("Message name required."));
+  // });
 
   // Test 5
   it("constructor sets name", () => {
