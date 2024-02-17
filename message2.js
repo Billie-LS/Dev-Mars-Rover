@@ -9,10 +9,10 @@ class Message {
   constructor(name, commands) {
     this.name = name;
     if (!name) {
-      throw Error("name required.");
+      throw new Error("Message name required.");
     }
     this.commands = commands;
   }
 }
 
-module.exports = Message;
+module.exports = Message2;

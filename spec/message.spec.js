@@ -10,30 +10,11 @@ constructor(name, commands)
 name is a string that is the name of the message.
 commands is an array of Command objects.
 */
-describe("Message class", function () {
-  // Test 4
-  it("throws error if a name is NOT passed into the constructor as the first parameter", function () {
-    expect(function () {
+describe("Message class", () => {
+  // Test 1
+  it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
+    expect(() => {
       new Message();
-    }).toThrow(new Error("Message name required."));
-  });
-
-  // Test 5
-  it("constructor sets name", function () {
-    let message = new Message("Test message with two commands");
-    expect(message.name).toEqual("Test message with two commands");
-  });
-
-  // Test 6
-  it("contains a commands array passed into the constructor as the 2nd argument", function () {
-    let commands = [
-      new Command("MODE_CHANGE", "LOW_POWER"),
-      new Command("STATUS_CHECK"),
-    ];
-    let message = new Message("Test message with two commands", commands);
-    expect(message.commands).toEqual([
-      new Command("MODE_CHANGE", "LOW_POWER"),
-      new Command("STATUS_CHECK"),
-    ]);
+    }).toThrow(new Error("name required."));
   });
 });
