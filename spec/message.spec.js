@@ -20,6 +20,13 @@ describe("Message class", () => {
 
   // Test 5
   it("constructor sets name", () => {
+    let testName = "Test message with two commands";
+    let message = new Message(testName);
+    expect(message.name).toBe(testName);
+  });
+
+  // Test 5
+  it("constructor sets name", () => {
     let message = new Message("Test message with two commands");
     expect(message.name).toBe("Test message with two commands");
   });
@@ -31,9 +38,19 @@ describe("Message class", () => {
       new Command("STATUS_CHECK"),
     ];
     let message = new Message("Test message with two commands", commands);
-    expect(message.commands).toEqual([
-      new Command("MODE_CHANGE", "LOW_POWER"),
-      new Command("STATUS_CHECK"),
-    ]);
+    expect(message.commands).toEqual(commands);
   });
+
+  // // Test 6
+  // it("contains a commands array passed into the constructor as the 2nd argument", () => {
+  //   let commands = [
+  //     new Command("MODE_CHANGE", "LOW_POWER"),
+  //     new Command("STATUS_CHECK"),
+  //   ];
+  //   let message = new Message("Test message with two commands", commands);
+  //   expect(message.commands).toEqual([
+  //     new Command("MODE_CHANGE", "LOW_POWER"),
+  //     new Command("STATUS_CHECK"),
+  //   ]);
+  // });
 });
