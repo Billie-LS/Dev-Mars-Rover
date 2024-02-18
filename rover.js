@@ -10,7 +10,20 @@ class Rover {
       results: [],
     };
     for (let command of message.commands) {
-      response.results.push({});
+      if (command.commandType === "STATUS_CHECK") {
+        // Respond to STATUS_CHECK command
+        response.results.push({
+          completed: true,
+          roverStatus: {
+            mode: this.mode,
+            generatorWatts: this.generatorWatts,
+            position: this.position,
+          },
+        });
+      } else {
+        // For other commands, push an empty result object
+        response.results.push({});
+      }
     }
     return response;
   }
