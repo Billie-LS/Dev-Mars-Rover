@@ -15,7 +15,7 @@ class Message {
   // Write code here!
 }
 
-module.exports = Message;
+module.exports = Message1;
 
 // class Command {
 //    constructor(commandType, value) {
