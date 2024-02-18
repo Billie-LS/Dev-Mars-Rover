@@ -27,7 +27,7 @@ describe("Rover class", function () {
   });
 
   // test 9
-  it("response returned by receiveMessage includes two results if two commands are sent in the message", function () {
+  it("response returned by receiveMessage includes two results if two commands are sent in the message", () => {
     let commands = [
       new Command("MODE_CHANGE", "LOW_POWER"),
       new Command("STATUS_CHECK"),
