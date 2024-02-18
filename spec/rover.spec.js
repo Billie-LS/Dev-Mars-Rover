@@ -21,4 +21,16 @@ describe("Rover class", () => {
     let response = rover.receiveMessage(message);
     expect(response.message).toBe("Test message name"); // constructor default '110'
   });
+
+  // test 9
+  it("response returned by receiveMessage includes two results if two commands are sent in the message", () => {
+    let commands = [
+      new Command("MODE_CHANGE", "LOW_POWER"),
+      new Command("STATUS_CHECK"),
+    ];
+    let message = new Message("Test message name", commands);
+    let rover = new Rover(98382); // Passes 98382 as the rover's
+    let response = rover.receiveMessage(message);
+    expect(response.results.length).toEqual(2); // constructor default '110'
+  });
 });
