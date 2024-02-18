@@ -22,7 +22,7 @@ Updates certain properties of the rover object
 */
 class Rover {
   constructor(position, mode, generatorWatts = 110) {
-    this.position = Number.position;
+    this.position = parseFloat(position);
     this.mode = "NORMAL";
     this.generatorWatts = generatorWatts;
   }
