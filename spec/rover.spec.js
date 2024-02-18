@@ -31,6 +31,24 @@ describe("Rover class", () => {
     let message = new Message("Test message name", commands);
     let rover = new Rover(98382); // Passes 98382 as the rover's
     let response = rover.receiveMessage(message);
-    expect(response.results.length).toEqual(2); // constructor default '110'
+    expect(response.results.length).toEqual(2);
+  });
+
+  // test 10
+  it("responds correctly to the status check command", () => {
+    let commands = [new Command("STATUS_CHECK")];
+
+    let message = new Message("Test message name", commands);
+    let rover = new Rover(98382); // Passes 98382 as the rover's
+    let response = rover.receiveMessage(message);
+
+    // Verify that the rover status is included in the result
+    expect(response.results[0]).toHaveProperty("roverStatus");
+    // Verify that the rover status includes the correct mode
+    expect(response.results[0].roverStatus.mode).toBe("NORMAL");
+    // Verify that the rover status includes the correct generatorWatts
+    expect(response.results[0].roverStatus.generatorWatts).toEqual(110);
+    // Verify that the rover status includes the correct position
+    expect(response.results[0].roverStatus.position).toEqual(98382);
   });
 });
