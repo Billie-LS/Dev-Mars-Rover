@@ -7,7 +7,7 @@ const Command = require("../command.js");
 
 describe("Rover class", function () {
   // test 7
-  it("constructor sets position and default values for mode and generatorWatts", function () {
+  it("constructor sets position and default values for mode and generatorWatts", () => {
     let rover = new Rover(9832);
     expect(rover.position).toEqual(9832);
     expect(rover.mode).toBe("NORMAL");
@@ -15,7 +15,7 @@ describe("Rover class", function () {
   });
 
   // test 8
-  it("response returned by receiveMessage contains the name of the message", function () {
+  it("response returned by receiveMessage contains the name of the message", () => {
     let commands = [
       new Command("MODE_CHANGE", "LOW_POWER"),
       new Command("STATUS_CHECK"),
