@@ -17,7 +17,7 @@ describe("Rover class", () => {
   // test 8
   it("response returned by receiveMessage contains the name of the message", () => {
     let message = new Message("Test message name");
-    let rover = new Rover(98382); // Passes 98382 as the rover's
+    let rover = new Rover(98382); // pass 98382 position parameter value
     let response = rover.receiveMessage(message);
     expect(response.message).toBe("Test message name"); // constructor default '110'
   });
@@ -29,7 +29,7 @@ describe("Rover class", () => {
       new Command("STATUS_CHECK"),
     ];
     let message = new Message("Test message name", commands);
-    let rover = new Rover(98382); // Passes 98382 as the rover's
+    let rover = new Rover(98382); // pass 98382 position parameter value
     let response = rover.receiveMessage(message);
     expect(response.results.length).toEqual(2);
   });
@@ -39,16 +39,16 @@ describe("Rover class", () => {
     let commands = [new Command("STATUS_CHECK")];
 
     let message = new Message("Test message name", commands);
-    let rover = new Rover(98382); // Passes 98382 as the rover's
+    let rover = new Rover(98382); // pass 98382 position parameter value
     let response = rover.receiveMessage(message);
 
-    // Verify that the rover status is included in the result
+    // verify roverStatus included in result
     expect(response.results[0]).toHaveProperty("roverStatus");
-    // Verify that the rover status includes the correct mode
+    // verify roverStatus includes correct mode
     expect(response.results[0].roverStatus.mode).toBe("NORMAL");
-    // Verify that the rover status includes the correct generatorWatts
+    // verify roverStatus includes correct generatorWatts
     expect(response.results[0].roverStatus.generatorWatts).toEqual(110);
-    // Verify that the rover status includes the correct position
+    // verify roverStatus includes correct position
     expect(response.results[0].roverStatus.position).toEqual(98382);
   });
 });
