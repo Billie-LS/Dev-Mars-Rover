@@ -21,9 +21,9 @@ results: an array of results. Each element in the array is an object that corres
 Updates certain properties of the rover object
 */
 class Rover {
-  constructor(position, mode = "NORMAL", generatorWatts = 110) {
-    this.position = position;
-    this.mode = mode;
+  constructor(position, mode, generatorWatts = 110) {
+    this.position = Number.position;
+    this.mode = "NORMAL";
     this.generatorWatts = generatorWatts;
   }
   receiveMessage(message) {
