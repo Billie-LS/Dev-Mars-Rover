@@ -51,4 +51,25 @@ describe("Rover class", () => {
     // verify roverStatus includes correct position
     expect(response.results[0].roverStatus.position).toEqual(98382);
   });
+
+  // test 11
+  it("responds correctly to the mode change command", () => {
+    // generate mode change command
+    let commands = [new Command("MODE_CHANGE", "LOW_POWER")];
+
+    // generate message with mode change command
+    let message = new Message("Test mode change command", commands);
+
+    // generate rover with initial position
+    let rover = new Rover(98382); // pass 98382 position parameter value
+
+    // generate response by rover receiving message through method
+    let response = rover.receiveMessage(message);
+
+    // confirm mode change command completed successfully
+    expect(response.results[0].completed).toBe(true);
+
+    // confirm rover's mode is changed to new mode in the command
+    expect(rover.mode).toBe("LOW_POWER");
+  });
 });

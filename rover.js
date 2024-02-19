@@ -1,17 +1,27 @@
 class Rover {
   constructor(position) {
+    // constructor sets position to provided argument; parse to number
     this.position = parseFloat(position); // position is number
-    this.mode = "NORMAL"; // constructor sets default mode
-    this.generatorWatts = 110; // constructor sets default generatorWatts
+
+    // constructor sets mode to fixed default "NORMAL"
+    this.mode = "NORMAL"; // default mode = "NORMAL"
+
+    // constructor sets generatorWatts to fixed default 110
+    this.generatorWatts = 110; // default generatorWatts = 110
   }
+  // method receiveMessage
   receiveMessage(message) {
+    // create response object with values message.name and empty array for results
     let response = {
       message: message.name,
       results: [],
     };
+
+    // iterate each command in message
     for (let command of message.commands) {
+      // logic check if commandType is STATUS_CHECK
       if (command.commandType === "STATUS_CHECK") {
-        // Respond to STATUS_CHECK command
+        // respond to STATUS_CHECK command push result object with rover status
         response.results.push({
           completed: true,
           roverStatus: {
@@ -33,6 +43,8 @@ class Rover {
     //   for (let command of message.commands) {
     //     response.results.push({});
     //   }
+
+    // return response object with executed commands and results
     return response;
   }
 }
