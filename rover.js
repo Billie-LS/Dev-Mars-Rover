@@ -25,6 +25,8 @@ class Rover {
         // Respond to MODE_CHANGE command
         this.mode = command.value; // Update rover's mode to the new value specified in the command
         response.results.push({ completed: true }); // Push a completed result object
+
+        // logic check if commandType is STATUS_CHECK
       } else if (command.commandType === "STATUS_CHECK") {
         // Respond to STATUS_CHECK command
         response.results.push({
