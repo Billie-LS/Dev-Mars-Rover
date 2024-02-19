@@ -72,4 +72,32 @@ describe("Rover class", () => {
     // confirm rover's mode is changed to new mode in the command
     expect(rover.mode).toBe("LOW_POWER");
   });
+
+  // test 12
+  it("responds with a false completed value when attempting to move in LOW_POWER mode", () => {
+    // generate command with 'MOVE' as commandType and 'LOW_POWER' as value
+    let commands = [new Command("MOVE", "LOW_POWER")];
+
+    // generate message with move command
+    let message = new Message("Test message name", commands);
+
+    // generate rover with initial position 98382
+    let rover = new Rover(98382);
+
+    // change rover's mode to 'LOW_POWER'
+    rover.receiveMessage(
+      new Message("Change mode to low power", [
+        new Command("MODE_CHANGE", "LOW_POWER"),
+      ])
+    );
+
+    // generate response by rover receiving message through method
+    let response = rover.receiveMessage(message);
+
+    // confirm move command NOT completed successfully
+    expect(response.results[0].completed).toBe(false);
+
+    // confirm rover's position is unchanged
+    expect(rover.position).toEqual(98382);
+  });
 });
