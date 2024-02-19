@@ -9,6 +9,7 @@ class Rover {
     // constructor sets generatorWatts to fixed default 110
     this.generatorWatts = 110; // default generatorWatts = 110
   }
+
   // method receiveMessage
   receiveMessage(message) {
     // create response object with values message.name and empty array for results
@@ -19,10 +20,15 @@ class Rover {
 
     // iterate each command in message
     for (let command of message.commands) {
-      // logic check if commandType is STATUS_CHECK
-      if (command.commandType === "STATUS_CHECK") {
-        // respond to STATUS_CHECK command push result object with rover status
+      // logic check if commandType is MODE_CHANGE
+      if (command.commandType === "MODE_CHANGE") {
+        // Respond to MODE_CHANGE command
+        this.mode = command.value; // Update rover's mode to the new value specified in the command
+        response.results.push({ completed: true }); // Push a completed result object
+      } else if (command.commandType === "STATUS_CHECK") {
+        // Respond to STATUS_CHECK command
         response.results.push({
+          // Push result object with rover status
           completed: true,
           roverStatus: {
             mode: this.mode,
@@ -35,6 +41,34 @@ class Rover {
         response.results.push({});
       }
     }
+
+    // // method receiveMessage
+    // receiveMessage(message) {
+    //   // create response object with values message.name and empty array for results
+    //   let response = {
+    //     message: message.name,
+    //     results: [],
+    //   };
+
+    //   // iterate each command in message
+    //   for (let command of message.commands) {
+    //     // logic check if commandType is STATUS_CHECK
+    //     if (command.commandType === "STATUS_CHECK") {
+    //       // respond to STATUS_CHECK command push result object with rover status
+    //       response.results.push({
+    //         completed: true,
+    //         roverStatus: {
+    //           mode: this.mode,
+    //           generatorWatts: this.generatorWatts,
+    //           position: this.position,
+    //         },
+    //       });
+    //     } else {
+    //       // For other commands, push an empty result object
+    //       response.results.push({});
+    //     }
+    //   }
+
     // receiveMessage(message) {
     //   let response = {
     //     message: message.name,
