@@ -25,6 +25,14 @@ class Rover {
         response.results.push({});
       }
     }
+    // receiveMessage(message) {
+    //   let response = {
+    //     message: message.name,
+    //     results: [],
+    //   };
+    //   for (let command of message.commands) {
+    //     response.results.push({});
+    //   }
     return response;
   }
 }
