@@ -100,4 +100,25 @@ describe("Rover class", () => {
     // confirm rover's position is unchanged
     expect(rover.position).toEqual(98382);
   });
+
+  // test 13
+  it("responds with the position for the move command", () => {
+    // generate command with 'MOVE' as commandType and a new position value
+    let commands = [new Command("MOVE", 12345)];
+
+    // generate message with move command
+    let message = new Message("Test move command", commands);
+
+    // generate rover with initial position 98382
+    let rover = new Rover(98382);
+
+    // generate response by rover receiving message through method
+    let response = rover.receiveMessage(message);
+
+    // confirm move command completed successfully
+    expect(response.results[0].completed).toBe(true);
+
+    // confirm rover's position updated to new position value
+    expect(rover.position).toEqual(12345);
+  });
 });
