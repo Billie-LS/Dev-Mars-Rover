@@ -129,4 +129,5 @@ class Rover {
   }
 }
 
+// export Rover module
 module.exports = Rover;
