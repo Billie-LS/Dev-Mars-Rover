@@ -99,15 +99,16 @@ describe("Rover class", () => {
   });
 
   // test 12
+  // confirm rover responds false completed value when attempting to move in LOW_POWER mode
   it("responds with a false completed value when attempting to move in LOW_POWER mode", () => {
-    // generate command with 'MOVE' as commandType and 'LOW_POWER' as value
+    // generate command with commandType 'MOVE' and value 'LOW_POWER'
     let commands = [new Command("MOVE", "LOW_POWER")];
 
-    // generate message with move command
+    // generate Message object with specified name and move command
     let message = new Message("Test message name", commands);
 
-    // generate rover with initial position 98382
-    let rover = new Rover(98382);
+    // generate Rover object with specified position
+    let rover = new Rover(98382); // pass 98382 position parameter value
 
     // change rover's mode to 'LOW_POWER'
     rover.receiveMessage(
@@ -116,7 +117,7 @@ describe("Rover class", () => {
       ])
     );
 
-    // generate response by rover receiving message through method
+    // generate response calling receiveMessage method on Rover object with message
     let response = rover.receiveMessage(message);
 
     // confirm move command NOT completed successfully
