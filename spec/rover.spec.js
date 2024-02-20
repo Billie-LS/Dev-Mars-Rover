@@ -128,17 +128,18 @@ describe("Rover class", () => {
   });
 
   // test 13
+  // confirm rover responds with the position for move command
   it("responds with the position for the move command", () => {
-    // generate command with 'MOVE' as commandType and a new position value
+    // generate command with commandType 'MOVE' and new position value 12345
     let commands = [new Command("MOVE", 12345)];
 
-    // generate message with move command
+    // generate Message object with specified name and move command
     let message = new Message("Test move command", commands);
 
-    // generate rover with initial position 98382
-    let rover = new Rover(98382);
+    // generate Rover object with specified position
+    let rover = new Rover(98382); // pass 98382 position parameter value
 
-    // generate response by rover receiving message through method
+    // generate response calling receiveMessage method on Rover object with message
     let response = rover.receiveMessage(message);
 
     // confirm move command completed successfully
