@@ -5,16 +5,16 @@ const Message = require("./message.js");
 // import Command class from command.js
 const Command = require("./command.js");
 
-// Create a new Rover instance with an initial position
-const rover = new Rover(98382);
+// generate Rover object with specified position
+const rover = new Rover(98382); // pass 98382 as the rover's position.
 
-// Create a new Message instance with commands
+// generate Message object with specified name and array of two commands
 const message = new Message("Test message name", [
   new Command("STATUS_CHECK"),
   new Command("MOVE", 100),
 ]);
 
-// Receive and process the message by the Rover
+// call receiveMessage method on Rover object with message
 const response = rover.receiveMessage(message);
 
 console.log(JSON.stringify(response, null, 2));
