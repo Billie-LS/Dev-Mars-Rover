@@ -129,5 +129,5 @@ class Rover {
   }
 }
 
-// export Rover module
+// export Rover class as Rover module
 module.exports = Rover;
