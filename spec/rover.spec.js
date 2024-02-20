@@ -1,25 +1,39 @@
+// import Rover class from rover.js
 const Rover = require("../rover.js");
+// import Message class from message.js
 const Message = require("../message.js");
+// import Command class from command.js
 const Command = require("../command.js");
 
 // NOTE: If at any time, you want to focus on the output from a single test, feel free to comment out all the others.
 //       However, do NOT edit the grading tests for any reason and make sure to un-comment out your code to get the autograder to pass.
 
+// describe Rover class testing
 describe("Rover class", () => {
   // test 7
+  // confirm constructor correctly sets position and default values for mode and generatorWatts
   it("constructor sets position and default values for mode and generatorWatts", () => {
+    // generate Rover object with specified position
     let rover = new Rover(98382); // pass 98382 as the rover's position.
-    expect(rover.position).toEqual(98382); // example position parameter value
+    // confirm position property set correctly
+    expect(rover.position).toEqual(98382); // example position parameter 98382
+    // confirm mode property set correctly
     expect(rover.mode).toBe("NORMAL"); // constructor default 'NORMAL'
+    // confirm generatorWatts property set correctly
     expect(rover.generatorWatts).toEqual(110); // constructor default '110'
   });
 
   // test 8
+  // confirm response from receiveMessage contains name of message
   it("response returned by receiveMessage contains the name of the message", () => {
-    let message = new Message("Test message name");
-    let rover = new Rover(98382); // pass 98382 position parameter value
+    // generate Message object with specified name
+    let message = new Message("Test message name"); // pass "Test message name" as message name.
+    // generate Rover object with specified position
+    let rover = new Rover(98382); // example position parameter 9838
+    // call receiveMessage method on Rover object with message
     let response = rover.receiveMessage(message);
-    expect(response.message).toBe("Test message name"); // constructor default '110'
+    // confirm response message property matches name of message
+    expect(response.message).toBe("Test message name"); // "Test message name" as message name
   });
 
   // test 9
