@@ -1,3 +1,4 @@
+// import Command class from command.js
 const Command = require("../command.js");
 
 // NOTE: If at any time, you want to focus on the output from a single test, feel free to comment out all the others.
