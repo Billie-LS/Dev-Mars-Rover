@@ -37,23 +37,33 @@ describe("Rover class", () => {
   });
 
   // test 9
+  // confirm response from receiveMessage includes two results if two commands sent in message
   it("response returned by receiveMessage includes two results if two commands are sent in the message", () => {
+    // define array with two commands
     let commands = [
       new Command("MODE_CHANGE", "LOW_POWER"),
       new Command("STATUS_CHECK"),
     ];
+    // generate Message object with specified name and commands
     let message = new Message("Test message name", commands);
+    // generate Rover object with specified position
     let rover = new Rover(98382); // pass 98382 position parameter value
+    // call receiveMessage method on Rover object with message
     let response = rover.receiveMessage(message);
+    // confirm response results array length is 2
     expect(response.results.length).toEqual(2);
   });
 
   // test 10
+  // confirm rover responds correctly to status check command
   it("responds correctly to the status check command", () => {
+    // generate command array with status check command
     let commands = [new Command("STATUS_CHECK")];
-
+    // generate Message object with specified name and commands
     let message = new Message("Test message name", commands);
+    // generate Rover object with specified position
     let rover = new Rover(98382); // pass 98382 position parameter value
+    // call receiveMessage method on Rover object with message
     let response = rover.receiveMessage(message);
 
     // verify roverStatus included in result
@@ -67,17 +77,18 @@ describe("Rover class", () => {
   });
 
   // test 11
+  // confirm rover responds correctly to mode change command
   it("responds correctly to the mode change command", () => {
     // generate mode change command
     let commands = [new Command("MODE_CHANGE", "LOW_POWER")];
 
-    // generate message with mode change command
+    // generate Message object with specified name and mode change command
     let message = new Message("Test mode change command", commands);
 
-    // generate rover with initial position
+    // generate Rover object with specified position
     let rover = new Rover(98382); // pass 98382 position parameter value
 
-    // generate response by rover receiving message through method
+    // generate response calling receiveMessage method on Rover object with message
     let response = rover.receiveMessage(message);
 
     // confirm mode change command completed successfully

@@ -48,7 +48,7 @@ describe("Message class", () => {
   // Test 6
   // confirm constructor sets commands array property correctly
   it("contains a commands array passed into the constructor as the 2nd argument", () => {
-    // define array of test
+    // define array of commands
     let commands = [
       new Command("MODE_CHANGE", "LOW_POWER"),
       new Command("STATUS_CHECK"),
