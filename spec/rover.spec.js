@@ -51,7 +51,7 @@ describe("Rover class", () => {
     // call receiveMessage method on Rover object with message
     const response = rover.receiveMessage(message);
     // confirm response results array length is 2
-    expect(response.results.length).toEqual(2);
+    expect(response.results.length).toEqual(commands.length);
   });
 
   // test 10
