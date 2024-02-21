@@ -159,9 +159,9 @@ describe("Rover class", () => {
       new Command("MOVE", 3579),
       new Command("STATUS_CHECK"),
     ];
-    let message = new Message("TA power", commands);
+    let message = new Message("Jessica power", commands);
     let response = rover.receiveMessage(message);
-    expect(response.message).toEqual("TA power");
+    expect(response.message).toEqual("Jessica power");
     expect(response.results[0].completed).toBeTruthy();
     expect(response.results[1].roverStatus.position).toEqual(4321);
     expect(response.results[2].completed).toBeTruthy();
