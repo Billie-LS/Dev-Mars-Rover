@@ -41,7 +41,7 @@ let commands = [
 //   new Command("STATUS_CHECK"),
 //   new Command("MOVE", 100),
 // ]);
-let message = new Message("TA power", commands);
+let message = new Message("JK power", commands);
 
 // call receiveMessage method on Rover object with message
 const response = rover.receiveMessage(message);
