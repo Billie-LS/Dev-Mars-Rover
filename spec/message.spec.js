@@ -21,13 +21,6 @@ describe("Message class", () => {
     expect(() => new Message()).toThrow(new Error("Message name required."));
   });
 
-  // // Test 4: first version
-  // it("throws error if a name is NOT passed into the constructor as the first parameter", () => {
-  //   expect(() => {
-  //     new Message();
-  //   }).toThrow(new Error("Message name required."));
-  // });
-
   // Test 5
   // confirm constructor sets name property correctly
   it("constructor sets name", () => {
@@ -38,12 +31,6 @@ describe("Message class", () => {
     // confirm name property set correctly
     expect(message.name).toBe(testName);
   });
-
-  // // Test 5: first version
-  // it("constructor sets name", () => {
-  //   let message = new Message("Test message with two commands");
-  //   expect(message.name).toBe("Test message with two commands");
-  // });
 
   // Test 6
   // confirm constructor sets commands array property correctly
@@ -58,17 +45,4 @@ describe("Message class", () => {
     // confirm commands array property set correctly
     expect(message.commands).toEqual(commands);
   });
-
-  // // Test 6: first version
-  // it("contains a commands array passed into the constructor as the 2nd argument", () => {
-  //   let commands = [
-  //     new Command("MODE_CHANGE", "LOW_POWER"),
-  //     new Command("STATUS_CHECK"),
-  //   ];
-  //   let message = new Message("Test message with two commands", commands);
-  //   expect(message.commands).toEqual([
-  //     new Command("MODE_CHANGE", "LOW_POWER"),
-  //     new Command("STATUS_CHECK"),
-  //   ]);
-  // });
 });

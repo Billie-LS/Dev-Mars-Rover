@@ -31,12 +31,6 @@ describe("Command class", function () {
     expect(command.commandType).toBe(testType);
   });
 
-  // // Test 2: first version
-  // it("constructor sets command type", () => {
-  //   let command = new Command("Move");
-  //   expect(command.commandType).toBe("Move");
-  // });
-
   // Test 3
   // confirm constructor sets value passed in as the 2nd argument
   it("constructor sets a value passed in as the 2nd argument", () => {
@@ -49,10 +43,4 @@ describe("Command class", function () {
     // confirm value property set correctly
     expect(command.value).toEqual(testValue);
   });
-
-  // // Test 3: first version
-  // it("constructor sets a value passed in as the 2nd argument", () => {
-  //   let command = new Command("Move", 12000);
-  //   expect(command.value).toEqual(12000);
-  // });
 });
