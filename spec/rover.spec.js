@@ -151,7 +151,9 @@ describe("Rover class", () => {
 
   // SUPER test
   it("Responds to TA message & commands", function () {
-    const rover = new Rover(100);
+    // generate Rover object with specified position
+    const rover = new Rover(100); // pass 100 position parameter value
+    // generate commands array with five different Command objects as elements
     const commands = [
       new Command("MOVE", 4321),
       new Command("STATUS_CHECK"),
@@ -159,15 +161,26 @@ describe("Rover class", () => {
       new Command("MOVE", 3579),
       new Command("STATUS_CHECK"),
     ];
+    // generate Message object with specified name and move commands array
     const message = new Message("JK power", commands);
+    // generate response calling receiveMessage method on Rover object with message
     const response = rover.receiveMessage(message);
+    // confirm response message property matches message name
     expect(response.message).toEqual("JK power");
+    // confirm first command in array (i.e. index 0) completed
     expect(response.results[0].completed).toBeTruthy();
+    // confirm rover's position updated to new position value specified in MOVE command
     expect(response.results[1].roverStatus.position).toEqual(4321);
+    // confirm rover's MODE_CHANGE command executed with third command
     expect(response.results[2].completed).toBeTruthy();
+    // confirm fourth command, 'MOVE' not executed, consequence successful MODE_CHANGE to LOW_POWER mode.
     expect(response.results[3].completed).toBeFalsy();
+    // confirm rover's position unchanged after fourth command
+    //  i.e. MODE_CHANGE to LOW_POWER mode => do not move => position unchanged
     expect(response.results[4].roverStatus.position).toEqual(4321);
+    // confirm rover's MODE_CHANGE to LOW_POWER mode after fourth command
     expect(response.results[4].roverStatus.mode).toEqual("LOW_POWER");
+    // confirm roverStatus includes correct generatorWatts
     expect(response.results[4].roverStatus.generatorWatts).toEqual(110);
   });
 });

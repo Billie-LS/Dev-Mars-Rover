@@ -40,22 +40,33 @@ class Rover {
 
     // iterate each command in message
     for (let command of message.commands) {
+      // switch statement to evaluate different commandType values
       switch (command.commandType) {
         case "MODE_CHANGE":
-          this.mode = command.value;
-          response.results.push({ completed: true });
+          // respond to commandType MODE_CHANGE
+          this.mode = command.value; // update rover's mode to new value specified in command
+          response.results.push({ completed: true }); // push completed results object
           break;
+
         case "MOVE":
+          // respond to commandType STATUS_CHECK
           if (this.mode === "LOW_POWER") {
+            // logic check if rover in LOW_POWER mode
+            // push results object indicating move command NOT completed
             response.results.push({ completed: false });
           }
+          // logic check if rover NOT in LOW_POWER mode
           if (this.mode !== "LOW_POWER") {
             this.position = command.value;
+            // push results object indicating move command completed
             response.results.push({ completed: true });
           }
           break;
+
         case "STATUS_CHECK":
+          // respond to commandType STATUS_CHECK
           response.results.push({
+            // push results object with rover status
             completed: true,
             roverStatus: {
               mode: this.mode,
@@ -64,8 +75,10 @@ class Rover {
             },
           });
           break;
+
         default:
-          response.results.push({});
+          // respond to any other commandType
+          response.results.push({}); // push empty results object
           break;
       }
     }
@@ -74,6 +87,5 @@ class Rover {
     return response;
   }
 }
-// testing
 // export Rover class as Rover module
 module.exports = Rover;
