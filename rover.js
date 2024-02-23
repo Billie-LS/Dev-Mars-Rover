@@ -59,21 +59,6 @@ class Rover {
           }
           break;
 
-        // case "MOVE":
-        //   // respond to commandType STATUS_CHECK
-        //   if (this.mode === "LOW_POWER") {
-        //     // logic check if rover in LOW_POWER mode
-        //     // push results object indicating move command NOT completed
-        //     response.results.push({ completed: false });
-        //   }
-        //   // logic check if rover NOT in LOW_POWER mode
-        //   if (this.mode !== "LOW_POWER") {
-        //     this.position = command.value;
-        //     // push results object indicating move command completed
-        //     response.results.push({ completed: true });
-        //   }
-        //   break;
-
         case "STATUS_CHECK":
           // respond to commandType STATUS_CHECK
           response.results.push({
